@@ -17,8 +17,14 @@ function hideElement(selector) {
 }
 
 function removeElementByText(text) {
-  const element = doc.querySelector(`:matches(:not(body)) :has(:contains(${text}))`);
-  if(element) element.remove();
+  const xpath = "//*[contains(text(), '" + text + "')]"
+  const result = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
+  const element = result.singleNodeValue
+
+  if (element) {
+    element.remove()
+  }
+
 }
 
 doc.addEventListener('DOMContentLoaded', function() {

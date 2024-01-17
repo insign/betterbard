@@ -17,8 +17,8 @@ function hideElement(selector) {
 }
 
 function removeElementByText(text) {
-  const xpath = "//*[contains(text(), '" + text + "')]"
-  const result = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
+  const xpath   = "//*[contains(text(), '" + text + "')]"
+  const result  = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
   const element = result.singleNodeValue
 
   if (element) {
@@ -27,7 +27,8 @@ function removeElementByText(text) {
 
 }
 
-doc.addEventListener('DOMContentLoaded', function() {
-  removeElementByText("Bard may display inaccurate");
-
+doc.addEventListener('DOMContentLoaded', function () {
+  setTimeout(() => {
+    removeElementByText("Bard may display inaccurate");
+  }, 1000)
 });

@@ -10,20 +10,18 @@
 
 'use strict';
 
-function removeElement(selector) {
-  document.querySelector(selector).remove();
-}
+const doc = document;
 
 function hideElement(selector) {
-  document.querySelector(selector).style.display = 'none';
+  doc.querySelector(selector).style.display = 'none';
 }
 
 function removeElementByText(text) {
-  const element = document.querySelector(`:matches(:not(body)) :has(:contains(${text}))`);
+  const element = doc.querySelector(`:matches(:not(body)) :has(:contains(${text}))`);
   if(element) element.remove();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+doc.addEventListener('DOMContentLoaded', function() {
   removeElementByText("Bard may display inaccurate");
 
 });
